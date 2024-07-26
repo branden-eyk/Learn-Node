@@ -10,6 +10,7 @@ const expressValidator = require('express-validator');
 const routes = require('./routes/index');
 const helpers = require('./helpers');
 const errorHandlers = require('./handlers/errorHandlers');
+require('./handlers/passport');
 
 // create our Express app
 const app = express();
@@ -19,9 +20,11 @@ app.set('views', path.join(__dirname, 'views')); // this is the folder where we 
 app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
+// We don't need to go through the router for these things, and we don't need to set up a router there for these because we are doing this
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Takes the raw requests and turns them into usable properties on req.body
+// Anytime somebody submits data via a form tag, you will get that data on your req.body as nicely named properties
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -29,6 +32,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(expressValidator());
 
 // populates req.cookies with any cookies that came along with the request
+// Allows us to utilize cookies essentially - we can set cookies as part of middleware using res.cookies() and pass them to the client
 app.use(cookieParser());
 
 // Sessions allow us to store data on visitors from request to request

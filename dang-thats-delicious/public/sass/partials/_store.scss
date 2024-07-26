@@ -1,27 +1,32 @@
 .stores {
-  display:flex;
-  flex-wrap:wrap;
+  display: flex;
+  flex-wrap: wrap;
   margin: -1.25em 0 0 -1.25em;
 }
 
 .store {
-  background:white;
+  background: white;
   margin: 1.25em 0 0 1.25em;
   width: calc(33.3333% - 1.25em);
   box-shadow: $shad;
+
   &--wide {
     width: 100%;
   }
+
   &__details {
     padding: 2rem;
+
     p {
       line-height: 1.2;
       margin-bottom: 0;
     }
   }
+
   @media all and (max-width: 850px) {
     width: calc(50% - 1.25em);
   }
+
   @media all and (max-width: 550px) {
     width: 100%;
   }
@@ -30,8 +35,8 @@
 .store__actions {
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 1px 0 rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2);
   margin-bottom: 50px;
   padding-top: 10px;
   padding-bottom: 20px;
@@ -43,10 +48,12 @@
 
 .store__action {
   font-size: 10px;
+
   svg {
     width: 25px;
     fill: white
   }
+
   &--edit {
     a {
       border-bottom: 0;
@@ -59,6 +66,7 @@
   position: relative;
   padding: 0 10px 0 10px;
   text-align: right;
+
   &:before {
     display: block;
     content: '';
@@ -76,6 +84,7 @@
     z-index: 1;
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
   }
+
   img {
     height: 100%;
     width: 100%;
